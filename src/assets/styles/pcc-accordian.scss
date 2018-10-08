@@ -1,10 +1,5 @@
-$color_1: #6d2077;
-$color_2: #333333;
-$background_color_1: #ffffff;
-$background_color_2: #f6f6f6;
-$background_color_3: #EDF4FA;
-$background_color_4: transparent;
-$background_color_5:#ccc;
+@import "../styles/variables.scss";
+
 eds-accordion {
 	eds-accordion-panel {
 		p {
@@ -18,7 +13,7 @@ eds-accordion {
 		.eds-accordion-caret {
 			transition: transform 150ms ease 0ms;
 		}
-		border-top: 1px solid #cccccc;
+		border-top: 1px solid $lightGreyColor;
 		position: relative;
 		display: flex;
 		flex-direction: column;
@@ -27,13 +22,14 @@ eds-accordion {
 			border: 0;
 			height: 40px;
 			padding: 10px 20px;
-			background-color: $background_color_2;
+			background-color: $whiteLightColor;
 			font-weight: 500;
 			font-size: 14px;
+			font-family: Roboto;
 			cursor: pointer;
 			&:focus {
 				outline: none;
-				background-color: $background_color_3;
+				background-color: $btnBackground;
 			}
 			&:active {
 				outline: none;
@@ -56,12 +52,26 @@ eds-accordion {
 				background-size: contain;
 				background-image: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyB3aWR0aD0iMTJweCIgaGVpZ2h0PSI3cHgiIHZpZXdCb3g9IjAgMCAxMiA3IiB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPgogICAgPCEtLSBHZW5lcmF0b3I6IFNrZXRjaCA0OC4yICg0NzMyNykgLSBodHRwOi8vd3d3LmJvaGVtaWFuY29kaW5nLmNvbS9za2V0Y2ggLS0+CiAgICA8dGl0bGU+R3JvdXAgMjwvdGl0bGU+CiAgICA8ZGVzYz5DcmVhdGVkIHdpdGggU2tldGNoLjwvZGVzYz4KICAgIDxkZWZzPjwvZGVmcz4KICAgIDxnIGlkPSJQYWdlLTIzIiBzdHJva2U9Im5vbmUiIHN0cm9rZS13aWR0aD0iMSIgZmlsbD0ibm9uZSIgZmlsbC1ydWxlPSJldmVub2RkIj4KICAgICAgICA8ZyBpZD0iR3JvdXAtMiIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoNi4wMDAwMDAsIDEuMDAwMDAwKSByb3RhdGUoLTQ1LjAwMDAwMCkgdHJhbnNsYXRlKC02LjAwMDAwMCwgLTEuMDAwMDAwKSB0cmFuc2xhdGUoMi4wMDAwMDAsIC0zLjAwMDAwMCkiIGZpbGw9IiMwRTZFQjciPgogICAgICAgICAgICA8cmVjdCBpZD0iUmVjdGFuZ2xlLTIiIHg9IjAiIHk9IjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjgiIHJ4PSIxIj48L3JlY3Q+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtMi1Db3B5IiB0cmFuc2Zvcm09InRyYW5zbGF0ZSg0LjAwMDAwMCwgNy4wMDAwMDApIHJvdGF0ZSg5MC4wMDAwMDApIHRyYW5zbGF0ZSgtNC4wMDAwMDAsIC03LjAwMDAwMCkgIiB4PSIzIiB5PSIzIiB3aWR0aD0iMiIgaGVpZ2h0PSI4IiByeD0iMSI+PC9yZWN0PgogICAgICAgIDwvZz4KICAgIDwvZz4KPC9zdmc+");
 			}
+			.edit-tab{
+				display: none;
+				svg{
+					vertical-align: bottom;
+					fill:$blueFontColor;
+				}
+			}
+			&.active{
+				.edit-tab{
+					display: block;
+					float: right;
+					color: $blueFontColor;
+				}
+			}
 		}
 		&:first-child {
 			border: 0;
 		}
 		.table{
-			background: $background_color_1;
+			background: $whiteColor;
 		}
 	}
 	eds-accordion-panel[active="true"] {
@@ -73,8 +83,8 @@ eds-accordion {
 		}
 		min-height: 200px;
 		.eds-accordion-label {
-			background-color: $background_color_4;
-			border-bottom: 1px solid #cccccc;
+			background-color: $transparent-color;
+			border-bottom: 1px solid $lightGreyColor;
 			margin: 0 20px;
 			padding: 10px 0;
 			width: auto;
@@ -103,8 +113,8 @@ eds-accordion {
 		}
 		//min-height: 200px;
 		.eds-accordion-label {
-			background-color: $background_color_4;
-			border-bottom: 1px solid #cccccc;
+			background-color: $transparent-color;
+			border-bottom: 1px solid $lightGreyColor;
 			padding: 10px 20px;
 			width: auto;
 			.eds-accordion-label-text {
@@ -126,9 +136,12 @@ eds-accordion {
 	display: flex;
 	flex-direction: column;
 	overflow: hidden;
-	border: 1px solid #cccccc;
+	border: 1px solid $lightGreyColor;
 	border-radius: 6px;
-	background-color: $background_color_1;
+	background-color: $whiteColor;
+	&.data{
+		display: none;
+	}
 }
 eds-accordion[wide] {
 	border-radius: 0;
@@ -140,11 +153,11 @@ eds-accordion[wide] {
 			&:nth-child(1) {
 				display: inline-block;
 				text-transform: uppercase;
-				color: $color_1;
+				color: $tab-heading-color;
 			}
 			&:nth-child(2) {
 				display: inline-block;
-				color: $color_2;
+				color: $font-primary-color;
 				margin-left: 3px;
 			}
 		}
@@ -203,11 +216,11 @@ eds-accordion[wide="true"] {
 			&:nth-child(1) {
 				display: inline-block;
 				text-transform: uppercase;
-				color: $color_1;
+				color: $tab-heading-color;
 			}
 			&:nth-child(2) {
 				display: inline-block;
-				color: $color_2;
+				color: $font-primary-color;
 				margin-left: 3px;
 			}
 		}
@@ -257,12 +270,15 @@ eds-accordion[wide="true"] {
 	}
 }
 .eds-greyed{
-	color: $background_color_5;
+	color: $lightGreyColor;
 }
 .acct-container {
 	.eds-accordion-label{
 		.eds-accordion-label-text{
 			vertical-align: super;
 		}
+	}
+	.containerMiddle > eds-card{
+		padding: 20px 38px;
 	}
 }

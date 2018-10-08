@@ -1,11 +1,9 @@
-$color_1: #426da9;
-$color_2: #b9b9b9;
-$bg-color: #dcdcdc;
-$btn-color: #426da9;
+@import './variables.scss';
+
 .activity-tabs{
     li{
         padding: 10px 15px;
-        border-bottom: 1px solid $color_2;
+        border-bottom: 1px solid $activity-tab-color;
     a{
         text-decoration: none;
         font-size: 14px;
@@ -27,16 +25,17 @@ $btn-color: #426da9;
 .notes-tab{
     margin-top: 385px;
     .eds-accordion-label{
-        background: $bg-color !important;
+        background:  $eds-accordian-label-bg !important;
     }
     .greyHeading button{
-        color: $color_1;
+        color: $btn-color;
     }
     textarea {
         resize: none;
      }
      .table{
         padding: 10px;
+        background:  $eds-accordian-label-bg !important;
      }
      .cell{
          font-size: 12px;
@@ -53,4 +52,33 @@ $btn-color: #426da9;
         text-transform: capitalize;
         font-size: 14px;
      }
+     .row {
+        padding: 0 10px;
+        > .cell{
+        vertical-align: middle;
+     }
+    }
+}
+.memo-tab{
+    ul{
+        display: none;
+        li{
+            padding: 5px 10px;
+        }
+       
+    }
+}
+.memo-tab:hover{
+    .eds-accordion-caret{
+        transform: rotate(180deg);
+    }
+ul{
+    display: block;
+    li{
+        border-bottom: none;    
+    }
+    a{
+        font-weight: normal;
+    }
+}
 }
